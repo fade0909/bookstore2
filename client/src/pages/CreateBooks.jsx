@@ -29,7 +29,7 @@ const CreateBooks = () => {
       })
       .catch((error) => {
         setLoading(false);
-        enqueueSnackbar("Error, complete all the data", { variant: "error" });
+        enqueueSnackbar("Error", { variant: "error" });
         console.log(error);
       });
   };

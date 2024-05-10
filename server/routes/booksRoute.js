@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 
 // Route for get all data of books from database
 
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const books = await Book.find({})
         return res.status(200).json({
@@ -42,6 +42,17 @@ router.get('/:id', async (req, res) => {
     } catch (error) {
         console.log(error.message)
         res.status(500).send({ message: error.message });
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const book = await Book.findById(id)
+        return res.status(200).json(book)
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send({ message: error.message })
     }
 })
 
