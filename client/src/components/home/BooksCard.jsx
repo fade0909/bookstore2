@@ -1,4 +1,5 @@
 import BookSingleCard from "./BookSingleCard";
+import { propValidation } from "../../utils/propValidation";
 
 const BooksCard = ({ books }) => {
   return (
@@ -9,5 +10,7 @@ const BooksCard = ({ books }) => {
     </div>
   );
 };
+
+BooksCard.propTypes = propValidation;
 
 export default BooksCard;

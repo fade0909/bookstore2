@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineDelete } from "react-icons/md";
+import { propValidation } from "../../utils/propValidation";
 
 const BooksTable = ({ books }) => {
   return (
@@ -21,7 +22,7 @@ const BooksTable = ({ books }) => {
       </thead>
       <tbody>
         {books.map((book, index) => (
-          <tr key={book.id} className="h-8">
+          <tr key={`${book.id}-${index}`} className="h-8">
             <td className="border border-slate-700 rounded-md text-center">
               {index + 1}
             </td>
@@ -55,5 +56,7 @@ const BooksTable = ({ books }) => {
     </table>
   );
 };
+
+BooksTable.propTypes = propValidation;
 
 export default BooksTable;

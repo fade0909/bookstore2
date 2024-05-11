@@ -6,6 +6,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineDelete } from "react-icons/md";
 import BookModal from "./BookModal";
 import { useState } from "react";
+import { propValidation } from "../../utils/propValidation";
 
 const BookSingleCard = ({ book }) => {
   const [showModal, setShowModal] = useState(false);
@@ -49,5 +50,7 @@ const BookSingleCard = ({ book }) => {
     </div>
   );
 };
+
+BookSingleCard.propTypes = propValidation;
 
 export default BookSingleCard;
